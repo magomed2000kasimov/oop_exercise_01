@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/magomed/oop_exercise_01/bits.cpp
+bits.h
+/home/magomed/oop_exercise_01/bits.h
+
+/home/magomed/oop_exercise_01/bits.h
+iostream
+-
+string
+-
+vector
+-
+
+/home/magomed/oop_exercise_01/main.cpp
+iostream
+-
+bits.h
+/home/magomed/oop_exercise_01/bits.h
+
