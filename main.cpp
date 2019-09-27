@@ -8,7 +8,9 @@ int main() {
     a.Read(std::cin);
     a.Write10(std::cout);
     a.Write2(std::cout);
-    a.ShiftLeft(1);
+    int n;
+    std::cin>>n;
+    a.ShiftLeft(n);
     a.Write10(std::cout);
     a.Write2(std::cout);
     std::cout<<a.Count_of_units()<<std::endl;

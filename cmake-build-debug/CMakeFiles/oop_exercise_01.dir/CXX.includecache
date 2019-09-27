@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+M:/maga/oop_exercise_01/bits.cpp
+bits.h
+M:/maga/oop_exercise_01/bits.h
+
+M:/maga/oop_exercise_01/bits.h
+iostream
+-
+string
+-
+vector
+-
+
+M:/maga/oop_exercise_01/main.cpp
+iostream
+-
+bits.h
+M:/maga/oop_exercise_01/bits.h
+

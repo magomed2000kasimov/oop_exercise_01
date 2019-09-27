@@ -29,9 +29,6 @@ void bit::Read(std::istream &is) {
         }
         v.push_back(d);
     }
-    //   for (auto st : v)
-    //     std::cout << st << ' ';
-    //std::cout << std::endl;
 
     unsigned int b_step = 1;
     for (int i = 0; i < 32 && i < v.size(); i++) {
@@ -72,7 +69,6 @@ void bit::Write2(std::ostream &os) {
 }
 
 bit bit::And(const bit &lel) const {
-    //bit temp;
     unsigned long long temp_a = a & lel.Hight();
     unsigned int temp_b = b & lel.Low();
     bit temp(temp_a, temp_b);
@@ -80,7 +76,6 @@ bit bit::And(const bit &lel) const {
 }
 
 bit bit::Or(const bit &lel) const {
-    //bit temp;
     unsigned long long temp_a = a | lel.Hight();
     unsigned int temp_b = b | lel.Low();
     bit temp(temp_a, temp_b);
@@ -88,7 +83,6 @@ bit bit::Or(const bit &lel) const {
 }
 
 bit bit::Xor(const bit &lel) const {
-    //bit temp;
     unsigned long long temp_a = a ^lel.Hight();
     unsigned int temp_b = b ^lel.Low();
     bit temp(temp_a, temp_b);
@@ -96,7 +90,6 @@ bit bit::Xor(const bit &lel) const {
 }
 
 bit bit::Not() const {
-    //bit temp;
     unsigned long long temp_a = ~a;
     unsigned int temp_b = ~b;
     bit temp(temp_a, temp_b);
@@ -168,40 +161,7 @@ int bit::Inclusion(const bit &lel) const {
         return 1;
     else
         return 0;
-    /* std::vector<int> v1, v2;
-    int result = 1;
-    int min_size;
-    unsigned int b1 = b;
-    while (b1 > 0) {
-        v1.push_back(b1 % 2);
-        b1 = b1 / 2;
-    }
-    unsigned long long a1 = a;
-    while (a1 > 0) {
-        v1.push_back(a1 % 2);
-        a1 = a1 / 2;
-    }
-    b1 = lel.Low();
-    while (b1 > 0) {
-        v2.push_back(b1 % 2);
-        b1 = b1 / 2;
-    }
-    a1 = lel.Hight();
-    while (a1 > 0) {
-        v2.push_back(a1 % 2);
-        a1 = a1 / 2;
-    }
-    if (v1.size() >= v2.size()) {
-        min_size = v2.size();
-    } else
-        return 0;
-    for (int i = 0; i < min_size; ++i) {
-        if (v1[i] != v2[i]) {
-            result = 0;
-            break;
-        }
-    }
-    return result;*/
+
 }
 
 bit::bit() {
