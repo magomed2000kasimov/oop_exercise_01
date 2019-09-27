@@ -5,32 +5,32 @@ int main() {
 
     bit a;
 
-    a.read(std::cin);
-    a.write_10(std::cout);
-    a.write_2(std::cout);
-    a.shiftLeft(std::cin);
-    a.write_10(std::cout);
-    a.write_2(std::cout);
-    std::cout<<a.number_of_units()<<std::endl;
+    a.Read(std::cin);
+    a.Write10(std::cout);
+    a.Write2(std::cout);
+    a.ShiftLeft(1);
+    a.Write10(std::cout);
+    a.Write2(std::cout);
+    std::cout<<a.Count_of_units()<<std::endl;
 
     bit c;
-    c.read(std::cin);
-    c.write_10(std::cout);
-    c.write_2(std::cout);
+    c.Read(std::cin);
+    c.Write10(std::cout);
+    c.Write2(std::cout);
 
     bit f;
-    f=a.AND(c);
-    f.write_10(std::cout);
-    f.write_2(std::cout);
-    f=a.OR(c);
-    f.write_10(std::cout);
-    f.write_2(std::cout);
-    f=a.NOT();
-    f.write_10(std::cout);
-    f.write_2(std::cout);
-    f=a.XOR(c);
-    f.write_10(std::cout);
-    f.write_2(std::cout);
-    std::cout<<c.inclusion(a)<<std::endl<<c.comparsion(a);
+    f=a.And(c);
+    f.Write10(std::cout);
+    f.Write2(std::cout);
+    f=a.Or(c);
+    f.Write10(std::cout);
+    f.Write2(std::cout);
+    f=a.Not();
+    f.Write10(std::cout);
+    f.Write2(std::cout);
+    f=a.Xor(c);
+    f.Write10(std::cout);
+    f.Write2(std::cout);
+    std::cout<<c.Inclusion(a)<<std::endl<<c.Comparsion(a);
     return 0;
 }

@@ -4,7 +4,7 @@
 
 #include "bits.h"
 
-int number(unsigned long long m) {
+int Count(unsigned long long m) {
     int i = 0;
     while (m > 0) {
         i += m % 2;
@@ -13,7 +13,7 @@ int number(unsigned long long m) {
     return i;
 }
 
-void bit::read(std::istream &is) {
+void bit::Read(std::istream &is) {
     std::string s;
     is >> s;
     int n = s.size();
@@ -52,11 +52,11 @@ void to2(unsigned long long a, std::ostream &os) {
     std::cout << a % 2;
 }
 
-void bit::write_10(std::ostream &os) {
+void bit::Write10(std::ostream &os) {
     os << a << " " << b << std::endl;
 }
 
-void bit::write_2(std::ostream &os) {
+void bit::Write2(std::ostream &os) {
     if (a != 0)
         to2(a, os);
     else
@@ -71,43 +71,42 @@ void bit::write_2(std::ostream &os) {
     os << std::endl;
 }
 
-bit bit::AND(const bit &lel) const {
-    bit temp;
-    unsigned long long temp_a = a & lel.vivod_star();
-    unsigned int temp_b = b & lel.vivod_mlad();
-    temp.vvod(temp_a, temp_b);
+bit bit::And(const bit &lel) const {
+    //bit temp;
+    unsigned long long temp_a = a & lel.Hight();
+    unsigned int temp_b = b & lel.Low();
+    bit temp(temp_a, temp_b);
     return temp;
 }
 
-bit bit::OR(const bit &lel) const {
-    bit temp;
-    unsigned long long temp_a = a | lel.vivod_star();
-    unsigned int temp_b = b | lel.vivod_mlad();
-    temp.vvod(temp_a, temp_b);
+bit bit::Or(const bit &lel) const {
+    //bit temp;
+    unsigned long long temp_a = a | lel.Hight();
+    unsigned int temp_b = b | lel.Low();
+    bit temp(temp_a, temp_b);
     return temp;
 }
 
-bit bit::XOR(const bit &lel) const {
-    bit temp;
-    unsigned long long temp_a = a ^lel.vivod_star();
-    unsigned int temp_b = b ^lel.vivod_mlad();
-    temp.vvod(temp_a, temp_b);
+bit bit::Xor(const bit &lel) const {
+    //bit temp;
+    unsigned long long temp_a = a ^lel.Hight();
+    unsigned int temp_b = b ^lel.Low();
+    bit temp(temp_a, temp_b);
     return temp;
 }
 
-bit bit::NOT() const {
-    bit temp;
+bit bit::Not() const {
+    //bit temp;
     unsigned long long temp_a = ~a;
     unsigned int temp_b = ~b;
-    temp.vvod(temp_a, temp_b);
+    bit temp(temp_a, temp_b);
     return temp;
 }
 
-void bit::shiftLeft(std::istream &is) {
-    int k = 0, i = 0;
-    is >> i;
+void bit::ShiftLeft(int i) {
+    int k = 0;
     while (k < i) {
-        if (b >= 2147483648) {
+        if (b >= (1u<<31u)) {
             a = a << 1;
             ++a;
             b = b << 1;
@@ -120,9 +119,8 @@ void bit::shiftLeft(std::istream &is) {
     }
 }
 
-void bit::shiftRight(std::istream &is) {
-    unsigned int k = 0, f = 2147483648, i = 0;
-    is >> i;
+void bit::ShiftRight(int i) {
+    unsigned int k = 0, f = (1u<<31u);
     while (k < i) {
         if (a % 2 == 1) {
             a = a >> 1;
@@ -138,35 +136,39 @@ void bit::shiftRight(std::istream &is) {
 }
 
 
-void bit::vvod(unsigned long long i, unsigned int j) {
+void bit::Get(unsigned long long i, unsigned int j) {
     a = i;
     b = j;
 }
 
-unsigned long long bit::vivod_star() const {
+unsigned long long bit::Hight() const {
     return a;
 }
 
-unsigned int bit::vivod_mlad() const {
+unsigned int bit::Low() const {
     return b;
 }
 
-int bit::number_of_units() const {
-    return number(a) + number(b);
+int bit::Count_of_units() const {
+    return Count(a) + Count(b);
 
 }
 
-int bit::comparsion(const bit &lel) const {
-    int i1 = number(a) + number(b);
-    int i2 = lel.number_of_units();
+int bit::Comparsion(const bit &lel) const {
+    int i1 = Count(a) + Count(b);
+    int i2 = lel.Count_of_units();
     if (i1 == i2)
         return 1;
     else
         return 0;
 }
 
-int bit::inclusion(const bit &lel) const {
-    std::vector<int> v1, v2;
+int bit::Inclusion(const bit &lel) const {
+    if ( (a&lel.a)==a && (b&lel.b)==b  )
+        return 1;
+    else
+        return 0;
+    /* std::vector<int> v1, v2;
     int result = 1;
     int min_size;
     unsigned int b1 = b;
@@ -179,12 +181,12 @@ int bit::inclusion(const bit &lel) const {
         v1.push_back(a1 % 2);
         a1 = a1 / 2;
     }
-    b1 = lel.vivod_mlad();
+    b1 = lel.Low();
     while (b1 > 0) {
         v2.push_back(b1 % 2);
         b1 = b1 / 2;
     }
-    a1 = lel.vivod_star();
+    a1 = lel.Hight();
     while (a1 > 0) {
         v2.push_back(a1 % 2);
         a1 = a1 / 2;
@@ -199,7 +201,7 @@ int bit::inclusion(const bit &lel) const {
             break;
         }
     }
-    return result;
+    return result;*/
 }
 
 bit::bit() {
